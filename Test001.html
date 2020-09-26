@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Info Windows</title>
+    <meta charset="utf-8">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoBVG9wxLuhva98jrL6PUzrGeETnaRy_I&callback=initMap&libraries=&v=weekly&language=ko"
+      defer
+    ></script>
+    <style type="text/css">
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+
+      /* Optional: Makes the sample page fill the window. */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script>
+      "use strict";
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+      function initMap() {
+        const uluru = {
+          lat: 37.4182086,
+          lng: 141.0201828
+        };
+
+        // https://www.google.com/maps?ll=37.586606,126.975343&z=19&t=h&hl=ko&gl=US&mapclient=apiv3&cid=799061215873248732
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,      // 줌상태
+          center: uluru, //
+          streetViewControl: true
+        });
+        const contentString =
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading">후쿠시마 원전 입니다.</h1>' +
+          '<div id="bodyContent"><a href="javascript:toggleStreetView();">이걸 클릭하면 로드뷰 실행</a> ' +
+          "</div>" +
+          "</div>";
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map,
+          title: "Uluru (Ayers Rock)"
+        });
+        marker.addListener("click", () => {
+          infowindow.open(map, marker);
+        });
+
+        panorama = map.getStreetView();
+
+        // https://www.google.com/maps/@37.4182086,141.0201828,3a,90y,58.77h,70.82t/data=!3m6!1e1!3m4!1swA7W4ncxyvHDbae26db0AQ!2e0!7i13312!8i6656
+        const astorPlace = {
+                  lat: 37.4182086,
+                  lng: 141.0201828
+                };
+
+        panorama.setPosition(astorPlace);
+        panorama.setPov(
+          /** @type {google.maps.StreetViewPov} */
+          {
+            heading: 55,
+            pitch: 1
+          }
+
+          // ,3a,15y,55.31h,89.63t
+        );
+
+        panorama.setZoom(15);
+
+      }
+
+      let panorama;
+
+
+
+      function toggleStreetView() {
+        const toggle = panorama.getVisible();
+
+        if (toggle == false) {
+          panorama.setVisible(true);
+        } else {
+          panorama.setVisible(false);
+        }
+
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+  </body>
+</html>

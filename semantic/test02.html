@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <script src="./js/app.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="semantic.min.css" />
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="semantic.min.js"></script>
+
+    <script src="bbb.js"></script> -->
+
+    <script>
+      console.log($("#tt").text());
+
+      $.each([1, 2, 3, 4, 5], function (i, o) {
+        console.log(i, o);
+      });
+      var aa = "qwewe";
+
+      bb = 13;
+
+      for (let i = 0; i < 100; i++) {
+        console.log("1");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="main ui container">
+      <form class="ui form">
+        <h2 class="ui dividing header">자산실사</h2>
+        <div class="field">
+          <label id="tt">자산번호 (Asset No.)</label>
+          <div class="field disabled grid">
+            <input
+              type="text"
+              name="shipping[first-name]"
+              placeholder="First Name"
+              value="010231230123123"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>분류 (Category)</label>
+          <div class="field disabled">
+            <input
+              type="text"
+              name="shipping[first-name]"
+              placeholder="First Name"
+              value="010231230123123"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>일련번호 (Serial No.)</label>
+          <div class="field disabled">
+            <input
+              type="text"
+              name="shipping[first-name]"
+              placeholder="First Name"
+              value="010231230123123"
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>상태 (Status)</label>
+          <div class="field disabled">
+            <input
+              type="text"
+              name="shipping[first-name]"
+              placeholder="First Name"
+              value="010231230123123"
+            />
+          </div>
+        </div>
+
+        <div class="inline field">
+          <label>실사용여부 (Check Y/N)</label>
+          <input
+            type="text"
+            name="shipping[first-name]"
+            placeholder="First Name"
+            value="Y"
+          />
+        </div>
+
+        <div class="inline fields">
+          <label>실사자 (Owner)</label>
+          <div class="two field">
+            <input
+              type="text"
+              name="shipping[address]"
+              placeholder="Street Address"
+            />
+          </div>
+          <div class="six field">
+            <input type="text" name="shipping[address-2]" placeholder="Apt #" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
